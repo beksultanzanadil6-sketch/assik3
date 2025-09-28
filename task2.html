@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 - Grid Layout</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f9f9f9; color: #333; }
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 240px 1fr;
+      grid-template-rows: 70px 1fr 60px;
+      gap: 12px;
+      min-height: 100vh;
+      padding: 12px;
+    }
+
+    .g-header {
+      grid-area: header;
+      background:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 18px;
+      border-radius:8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .logo { font-weight: bold; font-size: 20px; }
+    .main-nav ul { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+    .main-nav a { color: #333; text-decoration: none; font-weight: 500; }
+    .main-nav a:hover { color: #0077ff; }
+
+    .g-sidebar, .g-main {
+      background:#fff;
+      padding:16px;
+      border-radius:8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .g-sidebar:hover, .g-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .g-footer {
+      grid-area: footer;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 800px) {
+      .grid-container {
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <header class="g-header">
+      <div class="logo">beksisrocking</div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="task0.html">Navigation</a></li>
+          <li><a href="task1.html">Cards</a></li>
+          <li><a href="task2.html">Grid Layout</a></li>
+          <li><a href="task3.html">Gallery</a></li>
+          <li><a href="task4.html">Portfolio</a></li>
+        </ul>
+      </nav>
+    </header>
+    <aside class="g-sidebar">Sidebar<br>Menu, filters</aside>
+    <main class="g-main">Main content<br>Here goes the main page content</main>
+    <footer class="g-footer">Footer — © 2025</footer>
+  </div>
+</body>
+</html>
